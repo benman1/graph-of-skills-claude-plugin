@@ -35,6 +35,14 @@ npx skills add benman1/graph-of-skills-claude-plugin --skill graph-of-skills-loo
 
 The skill calls the `retrieve_skill_bundle` tool when the MCP server is connected. Without it, the skill falls back to a `curl` call to the REST endpoint.
 
+## Troubleshooting
+
+**401, or "Missing environment variables: GOS_API_KEY".** Claude Code reads the key from its own environment when it starts. It was started from somewhere that never loaded your shell profile (an IDE, a desktop app, a launcher), or before you exported the key. In a terminal, `echo ${#GOS_API_KEY}` must print a number above 0; start Claude Code from that terminal (`claude --continue` keeps your conversation). `/mcp` reconnect cannot pick up a new variable.
+
+**Starting from an app instead?** Use a header helper that reads the key at every connect. The steps are in the [docs](https://www.akilima.tech/graph-of-skills/docs#troubleshooting).
+
+**"Monthly retrieval free-tier cap reached" (429).** The free plan's monthly retrievals are used up; every call counts, including test scripts. The allowance resets at the start of the calendar month.
+
 ## What is in this repo
 
 - `.claude-plugin/marketplace.json`: the marketplace file (`akilima`).
