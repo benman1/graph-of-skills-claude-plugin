@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graph-of-Skills Plugin</title>
+  <meta name="description" content="Claude Code plugin for Graph-of-Skills: the MCP connection plus a skill that checks for a written method before unfamiliar work.">
+  <link rel="canonical" href="https://benman1.github.io/graph-of-skills-claude-plugin/">
+  <style>
+    :root { --bg:#fff; --fg:#1f2430; --muted:#5b6473; --line:#dde1e8; --code:#f4f6f9; --accent:#4f46e5; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#12141a; --fg:#e8eaf0; --muted:#a3abba; --line:#2a2f3b; --code:#1b1f28; --accent:#9aa0ff; }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 44rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; }
+    h2 { font-size: 1.25rem; margin: 2.25rem 0 .5rem; }
+    p, li { color: var(--fg); }
+    .lede { color: var(--muted); font-size: 1.1rem; }
+    pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: .9rem 1rem; overflow-x: auto; font-size: .875rem; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    a { color: var(--accent); }
+    ul { padding-left: 1.2rem; }
+    .links a { margin-right: 1.25rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Graph-of-Skills for Claude Code</h1>
+  <p class="lede">Connects Claude Code to Graph-of-Skills and adds one short skill. The skill tells your agent to check for a written method before a task in an unfamiliar file format, tool or convention.</p>
+
+  <h2>1. Get a key</h2>
+  <p>Create a free API key at <a href="https://www.akilima.tech/get-api-key">akilima.tech/get-api-key</a>, then add it to your shell profile:</p>
+  <pre><code>export GOS_API_KEY=your_key_here</code></pre>
+
+  <h2>2. Install the plugin</h2>
+  <pre><code>claude plugin marketplace add benman1/graph-of-skills-claude-plugin
+claude plugin install graph-of-skills@akilima</code></pre>
+  <p>The plugin declares the MCP server. It reads your key from <code>GOS_API_KEY</code>, so the key is never written into a config file.</p>
+
+  <h2>Only want the skill?</h2>
+  <pre><code>npx skills add https://www.akilima.tech -g -a claude-code -y</code></pre>
+
+  <h2>What happens on a task</h2>
+  <ul>
+    <li>Your agent sends one sentence describing the task to Graph-of-Skills.</li>
+    <li>Graph-of-Skills searches a public skill catalog and your own skills, by exact words and by meaning.</li>
+    <li>It returns the best matches with their full text, cut to a size limit you can set.</li>
+    <li>The agent follows the one that fits. Nothing is installed on your machine.</li>
+  </ul>
+
+  <p class="links">
+    <a href="https://www.akilima.tech/graph-of-skills">Product page</a>
+    <a href="https://github.com/benman1/graph-of-skills-claude-plugin">Source on GitHub</a>
+  </p>
+</main>
+</body>
+</html>
