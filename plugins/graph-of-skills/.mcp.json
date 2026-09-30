@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "graph-of-skills": {
+      "type": "http",
+      "url": "https://www.akilima.tech/api/graph-of-skills/mcp",
+      "headers": {
+        "Authorization": "Bearer ${GOS_API_KEY}"
+      }
+    }
+  }
+}

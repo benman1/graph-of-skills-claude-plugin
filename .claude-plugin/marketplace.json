@@ -1,0 +1,11 @@
+{
+  "name": "akilima",
+  "owner": { "name": "Akilima" },
+  "plugins": [
+    {
+      "name": "graph-of-skills",
+      "source": "./plugins/graph-of-skills",
+      "description": "Graph-of-Skills lookup for Claude Code: the MCP connection plus a short skill that tells the agent to check for a written method before unfamiliar work."
+    }
+  ]
+}

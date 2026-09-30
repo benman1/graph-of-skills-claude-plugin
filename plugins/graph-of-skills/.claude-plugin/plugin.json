@@ -1,0 +1,9 @@
+{
+  "name": "graph-of-skills",
+  "description": "Connects Claude Code to the Graph-of-Skills lookup and adds one short skill that tells the agent to check for a written method before unfamiliar work.",
+  "version": "0.1.0",
+  "homepage": "https://www.akilima.tech/graph-of-skills",
+  "author": {
+    "name": "Akilima"
+  }
+}
